@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: cYBuDLNdPCGBf2Jm
+      MYSQL_DATABASE: taruma
+      MYSQL_USER: django
+      MYSQL_PASSWORD: Senha@db123
+    ports: 
+      - "3306:3306"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
