@@ -25,7 +25,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python $
+    - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
@@ -36,18 +36,17 @@ jobs:
     - name: Run Migrations
       run: python manage.py migrate
       env: 
-        DBNAME: mysql
-        DBUSER: root
-        DBPASSWORD: cYBuDLNdPCGBf2Jm
-        DBHOST: 127.0.0.1
-        DBPORT: 3306
+        NAME: mysql
+        USER: root
+        PASSWORD: cYBuDLNdPCGBf2Jm
+        HOST: 127.0.0.1
+        PORT: 3306
     - name: Run Tests
       run: |
         python manage.py test
       env: 
-        DBENGINE: django.db.backends.mysql
-        DBNAME: mysql
-        DBUSER: root
-        DBPASSWORD: cYBuDLNdPCGBf2Jm
-        DBHOST: 127.0.0.1
-        DBPORT: 3306
+        NAME: mysql
+        USER: root
+        PASSWORD: cYBuDLNdPCGBf2Jm
+        HOST: 127.0.0.1
+        PORT: 3306
