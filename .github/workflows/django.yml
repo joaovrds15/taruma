@@ -19,7 +19,7 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: zergling
+          MYSQL_ROOT_PASSWORD: cYBuDLNdPCGBf2Jm
           MYSQL_DATABASE: mysql
         ports: ['3306:3306']
 
@@ -36,10 +36,9 @@ jobs:
     - name: Run Migrations
       run: python manage.py migrate
       env: 
-        DBENGINE: django.db.backends.mysql
         DBNAME: mysql
         DBUSER: root
-        DBPASSWORD: zergling
+        DBPASSWORD: cYBuDLNdPCGBf2Jm
         DBHOST: 127.0.0.1
         DBPORT: $
     - name: Run Tests
@@ -49,6 +48,6 @@ jobs:
         DBENGINE: django.db.backends.mysql
         DBNAME: mysql
         DBUSER: root
-        DBPASSWORD: zergling
+        DBPASSWORD: cYBuDLNdPCGBf2Jm
         DBHOST: 127.0.0.1
         DBPORT: $
