@@ -1,29 +1,52 @@
-name: Django app workflow
+name: Django CI
 
 on:
   push:
+    branches: '*'
+  pull_request:
+    branches: '*'
 
 jobs:
-  build:
+  test:
+
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
 
     services:
       mysql:
-        image: mysql:latest
+        image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: mydb
+          MYSQL_ROOT_PASSWORD: cYBuDLNdPCGBf2Jm
+          MYSQL_DATABASE: mysql
+        ports: ['3306:3306']
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Build and run Docker container
-      uses: docker/build-push-action@v2
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
       with:
-        context: .
-        file: Dockerfile
-        push: false
-        tags: my-docker-image
-    - name: Run tests
+        python-version: 3.9
+    - name: Install Dependencies
       run: |
-        docker-compose -f docker-compose.yml run web python manage.py test
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Migrations
+      run: python manage.py migrate
+      env: 
+        NAME: mysql
+        USER: root
+        PASSWORD: cYBuDLNdPCGBf2Jm
+        HOST: 127.0.0.1
+        PORT: 3306
+    - name: Run Tests
+      run: |
+        python manage.py test
+      env: 
+        NAME: mysql
+        USER: root
+        PASSWORD: cYBuDLNdPCGBf2Jm
+        HOST: 127.0.0.1
+        PORT: 3306
