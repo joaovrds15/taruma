@@ -28,7 +28,7 @@ jobs:
     - name: Set up Python $
       uses: actions/setup-python@v2
       with:
-        python-version: $
+        python-version: 3.9
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
@@ -40,7 +40,7 @@ jobs:
         DBUSER: root
         DBPASSWORD: cYBuDLNdPCGBf2Jm
         DBHOST: 127.0.0.1
-        DBPORT: $
+        DBPORT: 3306
     - name: Run Tests
       run: |
         python manage.py test
@@ -50,4 +50,4 @@ jobs:
         DBUSER: root
         DBPASSWORD: cYBuDLNdPCGBf2Jm
         DBHOST: 127.0.0.1
-        DBPORT: $
+        DBPORT: 3306
