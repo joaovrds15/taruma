@@ -36,17 +36,19 @@ jobs:
     - name: Run Migrations
       run: python manage.py migrate
       env: 
-        NAME: mysql
-        USER: root
-        PASSWORD: cYBuDLNdPCGBf2Jm
-        HOST: 127.0.0.1
-        PORT: 3306
+        DBNAME: mysql
+        DBUSER: root
+        DBPASSWORD: cYBuDLNdPCGBf2Jm
+        DBHOST: 127.0.0.1
+        DBPORT: 3306
+        SECRET_KEY: ${{secrets.SECRET_KEY}}
     - name: Run Tests
       run: |
         python manage.py test
       env: 
-        NAME: mysql
-        USER: root
-        PASSWORD: cYBuDLNdPCGBf2Jm
-        HOST: 127.0.0.1
-        PORT: 3306
+        DBNAME: mysql
+        DBUSER: root
+        DBPASSWORD: cYBuDLNdPCGBf2Jm
+        DBHOST: 127.0.0.1
+        DBPORT: 3306
+        SECRET_KEY: ${{secrets.SECRET_KEY}}
