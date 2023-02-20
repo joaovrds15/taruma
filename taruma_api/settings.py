@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_en0g=9jjr+c*@v-%95#zp5$f$ip^0#&dlhmcjgn7vu+p(=$vq'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'taruma_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'NAME': env('DBNAME'),
+        'USER': env('DBUSER'),
+        'PASSWORD': env('DBPASSWORD'),
+        'HOST': env('DBHOST'),
+        'PORT': env('DBPORT'),
     }
 }
 
