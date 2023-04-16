@@ -1,6 +1,7 @@
-django
+django==3.1
 djangorestframework
 django-environ
 mysqlclient
 django-mysql
 djangorestframework-simplejwt
+pytest-django

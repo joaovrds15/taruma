@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -15,7 +16,7 @@ class RegistrationView(generics.CreateAPIView):
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "message": "User Created Successfully.  Now perform Login to get your token",
-        })
+        }, status=status.HTTP_201_CREATED)
 
 class LoginView(generics.CreateAPIView):
 
