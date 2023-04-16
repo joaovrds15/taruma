@@ -1,5 +1,4 @@
 import pytest
-import factory
 from django.urls import reverse
 from django.contrib.auth.models import User
 from pytest_django.asserts import *
