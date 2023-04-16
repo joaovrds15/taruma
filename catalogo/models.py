@@ -5,8 +5,14 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f"{self.nome}"
+
 class Country(models.Model):
     nome = models.CharField(max_length=56)
+
+    def __str__(self):
+        return self.nome
 
 class Objective(models.Model):
     nome = models.CharField(max_length=56)
@@ -31,6 +37,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f"{self.nome} ({self.pais.nome}): {self.descricao} {self.categories}"
+    
 class Lote(models.Model):
     produto = models.ForeignKey(
         Product,

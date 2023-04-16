@@ -4,3 +4,4 @@ django-environ
 mysqlclient
 django-mysql
 djangorestframework-simplejwt
+pytest-django
