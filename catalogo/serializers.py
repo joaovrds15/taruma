@@ -135,4 +135,20 @@ class ProductSerializer(serializers.ModelSerializer):
             }
             response.append(productDict)
         return response
+
+    def format_response_list_one(self, product):
+        productDict = {
+            'nome' : product.nome,
+            'pais' : product.pais.nome,
+            'descricao' : product.descricao,
+            'conservacao' : product.conservacao,
+            'sugestao_de_uso' : product.sugestao_de_uso,
+            'image_url' : product.image_url,
+            'modo_uso' : product.modo_uso,
+            'categories' : self.format_category(product),
+            'objectives' : self.format_objectives(product),
+            'created_at' : product.created_at,
+            'updated_at' : product.updated_at
+        }
+        return productDict
             
