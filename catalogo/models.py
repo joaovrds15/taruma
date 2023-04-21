@@ -9,7 +9,7 @@ class Category(models.Model):
         return f"{self.nome}"
 
 class Country(models.Model):
-    nome = models.CharField(max_length=56)
+    nome = models.CharField(max_length=56, unique=True)
 
     def __str__(self):
         return self.nome
