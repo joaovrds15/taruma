@@ -5,3 +5,5 @@ mysqlclient
 django-mysql
 djangorestframework-simplejwt
 pytest-django
+factory-boy
+jsonschema

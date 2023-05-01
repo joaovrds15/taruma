@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+      "nome": {
+        "type": "string"
+      },
+      "pais": {
+        "type": "string"
+      },
+      "descricao": {
+        "type": "string"
+      },
+      "conservacao": {
+        "type": "string"
+      },
+      "sugestao_de_uso": {
+        "type": "string"
+      },
+      "image_url": {
+        "type": "string"
+      },
+      "modo_uso": {
+        "type": "string"
+      },
+      "categories": {
+        "type": "array",
+        "items": {}
+      },
+      "objectives": {
+        "type": "array",
+        "items": {}
+      }
+    },
+    "required": [
+      "nome",
+      "pais",
+      "descricao",
+      "conservacao",
+      "sugestao_de_uso",
+      "image_url",
+      "modo_uso",
+      "categories",
+      "objectives"
+    ]
+  }
