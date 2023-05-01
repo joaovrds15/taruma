@@ -12,9 +12,9 @@ from .models import Product
 import json
 
 class ProductView(APIView):
-    def get(self, request, id = None):
-        if id:
-            product = Product.objects.get(id = id)
+    def get(self, request, product_id = None):
+        if product_id:
+            product = Product.objects.get(id = product_id)
             serializer = ProductSerializer()
             data = serializer.format_response_list_one(product)
             return Response(data)

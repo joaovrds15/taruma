@@ -51,7 +51,7 @@ class ProductSerializer(serializers.ModelSerializer):
             if not Category.objects.filter(nome=category).exists():
                 raise serializers.ValidationError(
                     'Category ' + category + ' not found')
-            return values
+        return values
 
     def validate_objectives(self, values):
         for objective in values:
@@ -130,8 +130,6 @@ class ProductSerializer(serializers.ModelSerializer):
                 'modo_uso' : product.modo_uso,
                 'categories' : self.format_category(product),
                 'objectives' : self.format_objectives(product),
-                'created_at' : product.created_at,
-                'updated_at' : product.updated_at
             }
             response.append(productDict)
         return response
@@ -147,8 +145,6 @@ class ProductSerializer(serializers.ModelSerializer):
             'modo_uso' : product.modo_uso,
             'categories' : self.format_category(product),
             'objectives' : self.format_objectives(product),
-            'created_at' : product.created_at,
-            'updated_at' : product.updated_at
         }
         return productDict
             
