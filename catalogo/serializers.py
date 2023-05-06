@@ -25,6 +25,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'pais',
             'nome',
             'descricao',
+            'show_product',
             'conservacao',
             'sugestao_de_uso',
             'categories',
@@ -36,7 +37,8 @@ class ProductSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "objectives": {"required": False},
             "image_url": {"required": False},
-            "modo_uso": {"required": False}
+            "modo_uso": {"required": False},
+            "show_product": {"required": False},
         }
 
     def validate_pais(self, value):
@@ -122,6 +124,7 @@ class ProductSerializer(serializers.ModelSerializer):
         for product in products:
             productDict = {
                 'nome' : product.nome,
+                'show_product' : product.show_product,
                 'pais' : product.pais.nome,
                 'descricao' : product.descricao,
                 'conservacao' : product.conservacao,
@@ -137,6 +140,7 @@ class ProductSerializer(serializers.ModelSerializer):
     def format_response_list_one(self, product):
         productDict = {
             'nome' : product.nome,
+            'show_product' : product.show_product,
             'pais' : product.pais.nome,
             'descricao' : product.descricao,
             'conservacao' : product.conservacao,

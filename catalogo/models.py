@@ -34,6 +34,7 @@ class Product(models.Model):
     objectives = models.ManyToManyField(Objective)
     image_url = models.CharField(max_length=255, null=True)
     modo_uso = models.TextField()
+    show_product = models.BooleanField(default = True, null=False)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
