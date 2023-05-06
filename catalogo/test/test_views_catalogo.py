@@ -170,6 +170,7 @@ def test_list_products(api_client):
 def test_list_product(api_client):
     product = ProductFactory.create()
     category = CategoryFactory.create()
+    product.categories.add(category)
     url = reverse('list_product', args=[product.id])
     response = api_client.get(url)
     assert_valid_schema(response.data, 'catalogo_list_product.json')

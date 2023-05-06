@@ -1,45 +1,62 @@
 {
-    "type": "object",
-    "properties": {
-      "nome": {
-        "type": "string"
-      },
-      "pais": {
-        "type": "string"
-      },
-      "descricao": {
-        "type": "string"
-      },
-      "conservacao": {
-        "type": "string"
-      },
-      "sugestao_de_uso": {
-        "type": "string"
-      },
-      "image_url": {
-        "type": "string"
-      },
-      "modo_uso": {
-        "type": "string"
-      },
-      "categories": {
-        "type": "array",
-        "items": {}
-      },
-      "objectives": {
-        "type": "array",
-        "items": {}
-      }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string"
     },
-    "required": [
-      "nome",
-      "pais",
-      "descricao",
-      "conservacao",
-      "sugestao_de_uso",
-      "image_url",
-      "modo_uso",
-      "categories",
-      "objectives"
-    ]
-  }
+    "show_product": {
+      "type": "boolean"
+    },
+    "pais": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "string"
+    },
+    "conservacao": {
+      "type": "string"
+    },
+    "sugestao_de_uso": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "modo_uso": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "nome"
+          ]
+        }
+      ]
+    },
+    "objectives": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "nome",
+    "show_product",
+    "pais",
+    "descricao",
+    "conservacao",
+    "sugestao_de_uso",
+    "image_url",
+    "modo_uso",
+    "categories",
+    "objectives"
+  ]
+}
