@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Product
 import json
 
+# Comentario
 class ProductView(APIView):
     def get(self, request, product_id = None):
         if product_id:
